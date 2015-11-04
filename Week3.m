@@ -36,7 +36,7 @@ aggimpact = double(number_agents);
 % AGENTS
 
 % calculating chance by given a percentagemore than zero
-chanceRest = ((1-chanceZero)/9); 
+chanceRest = (1-chanceZero)/9; 
 
 %make a vector with random numbers given by number of agents
 r=rand(number_agents); 
@@ -57,15 +57,15 @@ weights = arrayfun(@(z)(value(find(z<=prob,1,'first'))), r);
 time = start_time + delta_t;
 
 % finding the scalefactor without subtracting own value for an given agent
-sumColumn = ((sum(weights,1)));
+sumColumn = (sum(weights,1));
 
 % find the overall sum of the given row without subtracting own value for an given agent
-sumRow = ((sum(weights,2))); 
+sumRow = (sum(weights,2)); 
 
 
 for agents = 1:number_agents
     % calculate the aggimpact (Sum from Row - own value)/ SumColumn - own value
-   aggimpact(agents) = ((sumRow(agents) - weights(agents,agents))/(sumColumn(agents)-weights(agents,agents)));
+   aggimpact(agents) = (sumRow(agents) - weights(agents,agents))/(sumColumn(agents)-weights(agents,agents));
 end   
 
 % calculating new states of agent
@@ -74,12 +74,7 @@ stateNumber = 2;
 intermediate_state = zeros(number_agents);
 intermediate_state(agents) = state(agents,1);
 while start_time < steps 
-    step = 1;
-   
-    for agents = 1:number_agents
-        
-    end
-    
+    step = 1; 
     while step <= 10 
         start_time = start_time + delta_t;
         for agents = 1:number_agents
