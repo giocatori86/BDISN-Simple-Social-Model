@@ -74,13 +74,17 @@ stateNumber = 2;
 intermediate_state = zeros(number_agents);
 intermediate_state(agents) = state(agents,1);
 while start_time < steps 
+<<<<<<< HEAD
     step = 1; 
+=======
+    step = 1;
+    
+>>>>>>> origin/master
     while step <= 10 
         start_time = start_time + delta_t;
         for agents = 1:number_agents
-        % update rule state(t+delta_t) = state(t)(update(aggimpact(choosen agent)delta_t
-        
-        % applying the update rule
+            % update rule state(t+delta_t) = state(t)(update(aggimpact(choosen agent)delta_t
+            % applying the update rule
             intermediate_state(agents) = intermediate_state(agents)+(update*aggimpact(agents)-intermediate_state(agents))*delta_t;  
         end
         % higher step
