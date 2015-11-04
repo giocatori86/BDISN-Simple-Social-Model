@@ -50,21 +50,22 @@ value=[0,.1,.2,.3,.4,.5,.6,.7,.8,.9,1];
 % calculate weights
 weights = arrayfun(@(z)(value(find(z<=prob,1,'first'))), r);
 
-% remove reflexive values
-for agents = 1:number_agents
+% remove weights to themself
+for agents = 1:numberAgents
     weights(agents,agents) = 0;
 end
 
   
+
 %CALCULATING STATES OF AGENTS
 
 % initializing time
 time = start_time + delta_t;
 
-% find the SUM of given Column
+% find the sum of given Column
 sumColumn = (sum(weights,1));
 
-% find the SUM of given Row
+% find the overall sum of the given row 
 sumRow = (sum(weights,2)); 
 
 
