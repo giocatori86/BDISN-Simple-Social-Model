@@ -19,6 +19,8 @@ number_agents = 5;
 % Make a random field
 state = zeros(number_agents,steps); 
 
+% calculating chance by given an percentage for zero
+chanceZero = 0.4;
 
 % Initial Values
 for agents = 1:number_agents
@@ -33,10 +35,7 @@ aggimpact = double(number_agents);
 % CREATE VARIABLE CONTAINING CONNECTION WEIGHTS FOR THE CONNECTIONS BETWEEN
 % AGENTS
 
-% calculating chance by given a percentage for zero
-chanceZero = 0.4;
-
-% calculating chance by given a percentagemore then zero
+% calculating chance by given a percentagemore than zero
 chanceRest = ((1-chanceZero)/9); 
 
 %make a vector with random numbers given by number of agents
@@ -57,10 +56,10 @@ weights = arrayfun(@(z)(value(find(z<=prob,1,'first'))), r);
 % initializing time
 time = start_time + delta_t;
 
-% finding the scalefactor without subtracting own value for a given agent
+% finding the scalefactor without subtracting own value for an given agent
 sumColumn = ((sum(weights,1)));
 
-% find the overall sum of the given row without subtracting own value for that agent
+% find the overall sum of the given row without subtracting own value for an given agent
 sumRow = ((sum(weights,2))); 
 
 
@@ -86,18 +85,16 @@ while start_time < steps
         for agents = 1:number_agents
         % update rule state(t+delta_t) = state(t)(update(aggimpact(choosen agent)delta_t
         
-        
-    
         % applying the update rule
             intermediate_state(agents) = intermediate_state(agents)+(update*aggimpact(agents)-intermediate_state(agents))*delta_t;  
         end
         % higher step
         step = step + 1;
-        
+       
     end
     
     for agents = 1:number_agents
-        % When the state of a agent is bigger then 1,make the state 1.
+        % When the state of a agent is bigger than 1,make the state 1.
         if intermediate_state(agents) > 1
             intermediate_state(agents) = 1;
         end
@@ -123,7 +120,7 @@ x = 0:1:steps-1;
 % printing a plot with the states
 
 
-% convert given states to a output
+% convert given states to an output
 for i=1:number_agents
     for t = 1:steps
     eval(sprintf('output_a%d(%d) = state(%d,%d)', i,t,i,t));
