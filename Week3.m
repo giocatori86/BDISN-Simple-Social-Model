@@ -74,12 +74,8 @@ stateNumber = 2;
 intermediate_state = zeros(number_agents);
 intermediate_state(agents) = state(agents,1);
 while start_time < steps 
-<<<<<<< HEAD
-    step = 1; 
-=======
     step = 1;
-    
->>>>>>> origin/master
+
     while step <= 10 
         start_time = start_time + delta_t;
         for agents = 1:number_agents
