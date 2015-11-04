@@ -86,11 +86,8 @@ while start_time < steps
         for agents = 1:number_agents
         % update rule state(t+delta_t) = state(t)(update(aggimpact(choosen agent)delta_t
         
-        % When the state of a agent is bigger then 1,make the state 1.
-        if intermediate_state(agents) > 1
-            intermediate_state(agents) = 1;
-        end
         
+    
         % applying the update rule
             intermediate_state(agents) = intermediate_state(agents)+(update*aggimpact(agents)-intermediate_state(agents))*delta_t;  
         end
@@ -100,7 +97,10 @@ while start_time < steps
     end
     
     for agents = 1:number_agents
-        
+        % When the state of a agent is bigger then 1,make the state 1.
+        if intermediate_state(agents) > 1
+            intermediate_state(agents) = 1;
+        end
             
          state(agents,stateNumber) = intermediate_state(agents);
 
