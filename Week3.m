@@ -31,7 +31,7 @@ delta_t = str2double(answer(4));
 % chance of no connection between two agents
 chanceZero = str2double(answer(5));
 
-% Make a random vector for states
+% make a random vector for states
 state = zeros(number_agents,steps); 
 
 
